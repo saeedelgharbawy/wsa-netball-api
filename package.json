@@ -1,0 +1,16 @@
+{
+  "name": "netball-api",
+  "version": "1.0.0",
+  "description": "project for netball api",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "netball-api-test": "newman run tests/LSDivision.postman_collection.json"
+  },
+  "author": "saeed elgharbawy",
+  "dependencies": {
+    "newman": "^5.3.0",
+    "uuid": "^8.3.2"
+  }
+}

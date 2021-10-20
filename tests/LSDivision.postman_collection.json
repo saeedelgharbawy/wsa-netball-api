@@ -1,0 +1,350 @@
+{
+	"info": {
+		"_postman_id": "90480685-8958-44b6-9cae-90eefd661af1",
+		"name": "LS Division",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "add Division",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							"let divisionId = pm.response.json();\r",
+							"pm.environment.set(\"Division Id\", divisionId.id);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/division/",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"division",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET division",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/division/id/:id",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"division",
+						"id",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{Division Id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Division Has Been Deleted Successfully\", function () {\r",
+							"    pm.expect(jsonData.raw.affectedRows).to.eql(1);\r",
+							"});\r",
+							"pm.environment.unset(\"Division Id\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/division/id/:id",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"division",
+						"id",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{Division Id}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET division by competition, team",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include divisions\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"divisions\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/division/?competitionId={{competitionId_StateDirect}}&teamIds=[{{teamId}}]&competitionOrganisationIds=[{{competitionOrganisationId_with incident}}]&offset=0&limit=10&competitionKey={{competitionUniqueKey_State}}&sortOrder={{sortOrder}}&search=",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"division",
+						""
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_StateDirect}}"
+						},
+						{
+							"key": "teamIds",
+							"value": "[{{teamId}}]"
+						},
+						{
+							"key": "competitionOrganisationIds",
+							"value": "[{{competitionOrganisationId_with incident}}]"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "competitionKey",
+							"value": "{{competitionUniqueKey_State}}"
+						},
+						{
+							"key": "sortBy",
+							"value": "{{sortBy}}",
+							"disabled": true
+						},
+						{
+							"key": "sortOrder",
+							"value": "{{sortOrder}}"
+						},
+						{
+							"key": "search",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find division by competition, name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/division/find?competitionId={{competitionId_AssocDirect}}&name={{divisionName}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"division",
+						"find"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_AssocDirect}}"
+						},
+						{
+							"key": "name",
+							"value": "{{divisionName}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "import Division",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "{{livescores_api}}/division/import?competitionId={{competitionId_StateDirect}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"division",
+						"import"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_StateDirect}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "{{auth}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
