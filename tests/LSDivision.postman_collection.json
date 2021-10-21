@@ -153,9 +153,7 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"The Body include divisions\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"divisions\");\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -228,9 +226,7 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"The Body include id\", function () {\r",
-							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
