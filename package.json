@@ -7,7 +7,7 @@
   },
   "scripts": {
     "netball-api-test": "newman run tests/LSDivision.postman_collection.json -e AWSDEV.postman_environment.json --reporters cli,junit --reporter-junit-export newman.xml",
-	"netball-api-test1": "newman run tests/LSBanner.postman_collection.json -e AWSDEV.postman_environment.json --reporters cli,junit --reporter-junit-export newman.xml",
+	"netball-api-test1": "newman run tests/LSBanner.postman_collection.json -e AWSDEV.postman_environment.json --reporters cli,junit --reporter-junit-export newman.xml returnStatus: true",
 	"netball-api-test2": "newman run tests/LSCompetition.postman_collection.json -e AWSDEV.postman_environment.json --reporters cli,junit --reporter-junit-export newman.xml"
   },
   "author": "saeed elgharbawy",
