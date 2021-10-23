@@ -1,0 +1,436 @@
+{
+	"info": {
+		"_postman_id": "6f7f6860-b0f3-4e33-830e-e3c8d8202557",
+		"name": "LS Banner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Banners",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/banners?competitionIds=[{{competitionId_StateDirect}}]&organisationId={{organisationId_state}}&format=Horizontal",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"banners"
+					],
+					"query": [
+						{
+							"key": "competitionIds",
+							"value": "[{{competitionId_StateDirect}}]",
+							"description": "List of competitionIds to fetch banners for."
+						},
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}",
+							"description": "Organisation to fetch banners for"
+						},
+						{
+							"key": "pageType",
+							"value": "",
+							"description": "Disabled for now. Indicates the pages this banner appears in the app. Options: HOME | DRAWS | LADDERS",
+							"disabled": true
+						},
+						{
+							"key": "format",
+							"value": "Horizontal",
+							"description": "Horizontal or Square"
+						}
+					]
+				},
+				"description": "Return list of banners for the competition with indication of which property they should display on"
+			},
+			"response": []
+		},
+		{
+			"name": "Create or edit Banner",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The Banner Created Successfully\", function () {\r",
+							"  pm.expect(pm.response.text()).to.include(\"Id\")\r",
+							"  });\r",
+							"  let bannerId = pm.response.json();\r",
+							"pm.environment.set(\"bannerId\", bannerId.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "bannerImage",
+							"description": "The banner image. If this is passed in, it is saved and the URL returned in the response.",
+							"type": "file",
+							"src": "/Users/asaber/Downloads/1.jpg"
+						},
+						{
+							"key": "id",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "competitionId",
+							"value": "845",
+							"description": "The competition for which the banner if published",
+							"type": "text"
+						},
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}",
+							"type": "text"
+						},
+						{
+							"key": "format",
+							"value": "",
+							"description": "Horizontal or Vertical",
+							"type": "text"
+						},
+						{
+							"key": "bannerUrl",
+							"value": "https://firebasestorage.googleapis.com/v0/b/world-sport-action.appspot.com/o/banner%2Fbanner_2_1571646884153.jpg?alt=media",
+							"description": "The url containing the banner image. If updating a banner and a new image isn't uploaded, the existing URL must be passed in; otherwise will use the url of the newly uploaded file.",
+							"type": "text"
+						},
+						{
+							"key": "bannerLink",
+							"value": "http://google.com",
+							"description": "The link that the banner should open",
+							"type": "text"
+						},
+						{
+							"key": "sequence",
+							"value": "1",
+							"description": "The sequence in which the banner should show.\n",
+							"type": "text"
+						},
+						{
+							"key": "showOnHome",
+							"value": "1",
+							"contentType": "",
+							"description": "Whether to show the banner on the home page",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "showOnDraws",
+							"value": "1",
+							"description": "Whether to show the banner on the draws page",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "showOnLadder",
+							"value": "1",
+							"description": "Whether to show the banner on the ladder",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "showOnNews",
+							"value": "1",
+							"description": "Whether to show the banner on news",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "showOnChat",
+							"value": "1",
+							"description": "Whether to show the banner on chat",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{livescores_api}}/banners?competitionId={{competitionId_StateDirect}}&organisationId={{organisationId_state}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"banners"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_StateDirect}}"
+						},
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}"
+						}
+					]
+				},
+				"description": "Save a banner for a competition"
+			},
+			"response": []
+		},
+		{
+			"name": "Create or edit Org Banner",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The Banner Created Successfully\", function () {\r",
+							"  pm.expect(pm.response.text()).to.include(\"Id\")\r",
+							"  });\r",
+							"    let bannerId = pm.response.json();\r",
+							"pm.environment.set(\"bannerId\", bannerId.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "images",
+							"description": "The banner image. If this is passed in, it is saved and the URL returned in the response.",
+							"type": "file",
+							"src": "/C:/Users/saeed/Desktop/Temp/A1.png"
+						},
+						{
+							"key": "id",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_StateDirect}}",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}",
+							"type": "text"
+						},
+						{
+							"key": "imageTypes",
+							"value": "",
+							"description": "Horizontal or Vertical",
+							"type": "text"
+						},
+						{
+							"key": "bannerUrl",
+							"value": "https://firebasestorage.googleapis.com/v0/b/world-sport-action.appspot.com/o/banner%2Fbanner_2_1571646884153.jpg?alt=media",
+							"description": "The url containing the banner image. If updating a banner and a new image isn't uploaded, the existing URL must be passed in; otherwise will use the url of the newly uploaded file.",
+							"type": "text"
+						},
+						{
+							"key": "horizontalBannerLink",
+							"value": "http://google.com",
+							"description": "The link that the banner should open",
+							"type": "text"
+						},
+						{
+							"key": "squareBannerLink",
+							"value": "1",
+							"description": "The sequence in which the banner should show.\n",
+							"type": "text"
+						},
+						{
+							"key": "sponsorName",
+							"value": "Test banner 2",
+							"contentType": "",
+							"description": "Whether to show the banner on the home page",
+							"type": "text"
+						},
+						{
+							"key": "showOnDraws",
+							"value": "1",
+							"description": "Whether to show the banner on the draws page",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "showOnLadder",
+							"value": "1",
+							"description": "Whether to show the banner on the ladder",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "showOnNews",
+							"value": "1",
+							"description": "Whether to show the banner on news",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "showOnChat",
+							"value": "1",
+							"description": "Whether to show the banner on chat",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{livescores_api}}/banners/communication?organisationId={{organisationId_state}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"banners",
+						"communication"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_StateDirect}}",
+							"disabled": true
+						},
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}"
+						}
+					]
+				},
+				"description": "Save a banner for a competition"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Banner",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Banner Has Been Deleted Successfully\", function () {\r",
+							"    pm.expect(jsonData.raw.affectedRows).to.eql(1);\r",
+							"});\r",
+							"pm.environment.unset(\"bannerId\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/banners/id/:id",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"banners",
+						"id",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{bannerId}}",
+							"type": "string",
+							"description": "The id of the banner to delete"
+						}
+					]
+				},
+				"description": "Delete a banner from a competition"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{auth}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
