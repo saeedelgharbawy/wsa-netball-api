@@ -1,0 +1,1645 @@
+{
+	"info": {
+		"_postman_id": "9168d2df-68c7-4c6d-af3e-164b68c890fe",
+		"name": "LS Competition",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Linked Competition Organisation",
+			"item": [
+				{
+					"name": "Get",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The Request Has Been Done Successfully\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{livescores_api}}/linkedCompetitionOrganisation/id/:id",
+							"host": [
+								"{{livescores_api}}"
+							],
+							"path": [
+								"linkedCompetitionOrganisation",
+								"id",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{competitionId_State Direct}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"The Request Has Been Done Successfully\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{livescores_api}}/linkedCompetitionOrganisation/?name=&competitionId={{competitionId_State Direct}}",
+							"host": [
+								"{{livescores_api}}"
+							],
+							"path": [
+								"linkedCompetitionOrganisation",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": ""
+								},
+								{
+									"key": "competitionId",
+									"value": "{{competitionId_State Direct}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get competition by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The Request Has Been Done Successfully\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paging\" : {\r\n        \"limit\" : 10,\r\n        \"offset\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions/id/:id",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"id",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{competitionId_State Direct}}",
+							"type": "string",
+							"description": "The competition id to fetch"
+						}
+					]
+				},
+				"description": "Get competition settings including venues"
+			},
+			"response": [
+				{
+					"name": "Get competition by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paging\" : {\r\n        \"limit\" : 10,\r\n        \"offset\": 0\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{livescores_api}}/competitions/id/:id",
+							"host": [
+								"{{livescores_api}}"
+							],
+							"path": [
+								"competitions",
+								"id",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{competitionId}}",
+									"type": "string",
+									"description": "The competition id to fetch"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Jun 2020 21:18:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2196"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"894-s+p93gnaD6fA8shshM20stJbWSk\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"uniqueKey\": \"20b91f98-3f12-41c1-aeeb-70c9d6f4fa3d\",\n    \"name\": \"Twsa\",\n    \"longName\": \"world sport action\",\n    \"logoUrl\": \"https://www.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/comp_1%2Flogo_1585835281706.png?generation=1585835282402396&alt=media\",\n    \"organisationId\": 3,\n    \"recordUmpire\": 0,\n    \"recordUmpireType\": \"USERS\",\n    \"gameTimeTracking\": true,\n    \"positionTracking\": true,\n    \"uploadScores\": false,\n    \"uploadAttendance\": false,\n    \"scoringType\": \"50_50\",\n    \"attendanceRecordingType\": \"BOTH\",\n    \"timerType\": \"PER_MATCH\",\n    \"attendanceRecordingPeriod\": \"MATCH\",\n    \"softBuzzerUrl\": \"https://firebasestorage.googleapis.com/v0/b/world-sport-action.appspot.com/o/buzzers%2Fnsna.mp3?alt=media&token=26fec7a7-d457-4407-8f79-e918bb695eb3\",\n    \"hardBuzzerUrl\": \"https://firebasestorage.googleapis.com/v0/b/world-sport-action.appspot.com/o/buzzers%2Fstop.mp3?alt=media&token=dfa05136-5ba6-479f-b0a8-9cc130634fa8\",\n    \"recordGoalAttempts\": false,\n    \"centrePassEnabled\": true,\n    \"lineupSelectionTime\": 4,\n    \"attendanceSelectionTime\": 3064,\n    \"lineupSelectionEnabled\": true,\n    \"lineupMaxPlayers\": null,\n    \"incidentsEnabled\": true,\n    \"buzzerEnabled\": true,\n    \"warningBuzzerEnabled\": false,\n    \"deleted_at\": null,\n    \"competitionVenues\": [\n        {\n            \"id\": 1656,\n            \"venueId\": 326,\n            \"competitionId\": 1,\n            \"venue\": {\n                \"id\": 326,\n                \"name\": \"11 test\",\n                \"shortName\": \"21\",\n                \"street1\": \"asdasdas\",\n                \"street2\": \"\",\n                \"suburb\": \"sadasd\",\n                \"stateRefId\": 5,\n                \"postalCode\": \"6562\",\n                \"contactNumber\": \"\",\n                \"statusRefId\": 1,\n                \"createdBy\": 21,\n                \"createdByOrganisation\": 2,\n                \"updatedBy\": null,\n                \"updatedOn\": null,\n                \"isDeleted\": 0,\n                \"lat\": null,\n                \"lng\": null,\n                \"isEventSpecific\": false\n            }\n        },\n        {\n            \"id\": 1657,\n            \"venueId\": 361,\n            \"competitionId\": 1,\n            \"venue\": {\n                \"id\": 361,\n                \"name\": \"2test\",\n                \"shortName\": \"sa\",\n                \"street1\": \"sa\",\n                \"street2\": \"\",\n                \"suburb\": \"asd\",\n                \"stateRefId\": 6,\n                \"postalCode\": \"3213\",\n                \"contactNumber\": \"\",\n                \"statusRefId\": 1,\n                \"createdBy\": 21,\n                \"createdByOrganisation\": 2,\n                \"updatedBy\": null,\n                \"updatedOn\": null,\n                \"isDeleted\": 0,\n                \"lat\": null,\n                \"lng\": null,\n                \"isEventSpecific\": false\n            }\n        },\n        {\n            \"id\": 1658,\n            \"venueId\": 314,\n            \"competitionId\": 1,\n            \"venue\": {\n                \"id\": 314,\n                \"name\": \"65dasdas\",\n                \"shortName\": null,\n                \"street1\": \"asd\",\n                \"street2\": \"\",\n                \"suburb\": \"ssssss\",\n                \"stateRefId\": 2,\n                \"postalCode\": \"8547\",\n                \"contactNumber\": \"\",\n                \"statusRefId\": 1,\n                \"createdBy\": 3,\n                \"createdByOrganisation\": 3,\n                \"updatedBy\": null,\n                \"updatedOn\": null,\n                \"isDeleted\": 0,\n                \"lat\": null,\n                \"lng\": null,\n                \"isEventSpecific\": false\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Ranked Umpires Count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"The Request Has Been Done Successfully\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paging\" : {\r\n        \"limit\" : 10,\r\n        \"offset\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions/id/:competitionId/ranked-umpires-count",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"id",
+						":competitionId",
+						"ranked-umpires-count"
+					],
+					"variable": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_State Direct}}"
+						}
+					]
+				},
+				"description": "Get competition settings including venues"
+			},
+			"response": [
+				{
+					"name": "Get competition by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"paging\" : {\r\n        \"limit\" : 10,\r\n        \"offset\": 0\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{livescores_api}}/competitions/id/:id",
+							"host": [
+								"{{livescores_api}}"
+							],
+							"path": [
+								"competitions",
+								"id",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{competitionId}}",
+									"type": "string",
+									"description": "The competition id to fetch"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Jun 2020 21:18:26 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2196"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"894-s+p93gnaD6fA8shshM20stJbWSk\""
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"uniqueKey\": \"20b91f98-3f12-41c1-aeeb-70c9d6f4fa3d\",\n    \"name\": \"Twsa\",\n    \"longName\": \"world sport action\",\n    \"logoUrl\": \"https://www.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/comp_1%2Flogo_1585835281706.png?generation=1585835282402396&alt=media\",\n    \"organisationId\": 3,\n    \"recordUmpire\": 0,\n    \"recordUmpireType\": \"USERS\",\n    \"gameTimeTracking\": true,\n    \"positionTracking\": true,\n    \"uploadScores\": false,\n    \"uploadAttendance\": false,\n    \"scoringType\": \"50_50\",\n    \"attendanceRecordingType\": \"BOTH\",\n    \"timerType\": \"PER_MATCH\",\n    \"attendanceRecordingPeriod\": \"MATCH\",\n    \"softBuzzerUrl\": \"https://firebasestorage.googleapis.com/v0/b/world-sport-action.appspot.com/o/buzzers%2Fnsna.mp3?alt=media&token=26fec7a7-d457-4407-8f79-e918bb695eb3\",\n    \"hardBuzzerUrl\": \"https://firebasestorage.googleapis.com/v0/b/world-sport-action.appspot.com/o/buzzers%2Fstop.mp3?alt=media&token=dfa05136-5ba6-479f-b0a8-9cc130634fa8\",\n    \"recordGoalAttempts\": false,\n    \"centrePassEnabled\": true,\n    \"lineupSelectionTime\": 4,\n    \"attendanceSelectionTime\": 3064,\n    \"lineupSelectionEnabled\": true,\n    \"lineupMaxPlayers\": null,\n    \"incidentsEnabled\": true,\n    \"buzzerEnabled\": true,\n    \"warningBuzzerEnabled\": false,\n    \"deleted_at\": null,\n    \"competitionVenues\": [\n        {\n            \"id\": 1656,\n            \"venueId\": 326,\n            \"competitionId\": 1,\n            \"venue\": {\n                \"id\": 326,\n                \"name\": \"11 test\",\n                \"shortName\": \"21\",\n                \"street1\": \"asdasdas\",\n                \"street2\": \"\",\n                \"suburb\": \"sadasd\",\n                \"stateRefId\": 5,\n                \"postalCode\": \"6562\",\n                \"contactNumber\": \"\",\n                \"statusRefId\": 1,\n                \"createdBy\": 21,\n                \"createdByOrganisation\": 2,\n                \"updatedBy\": null,\n                \"updatedOn\": null,\n                \"isDeleted\": 0,\n                \"lat\": null,\n                \"lng\": null,\n                \"isEventSpecific\": false\n            }\n        },\n        {\n            \"id\": 1657,\n            \"venueId\": 361,\n            \"competitionId\": 1,\n            \"venue\": {\n                \"id\": 361,\n                \"name\": \"2test\",\n                \"shortName\": \"sa\",\n                \"street1\": \"sa\",\n                \"street2\": \"\",\n                \"suburb\": \"asd\",\n                \"stateRefId\": 6,\n                \"postalCode\": \"3213\",\n                \"contactNumber\": \"\",\n                \"statusRefId\": 1,\n                \"createdBy\": 21,\n                \"createdByOrganisation\": 2,\n                \"updatedBy\": null,\n                \"updatedOn\": null,\n                \"isDeleted\": 0,\n                \"lat\": null,\n                \"lng\": null,\n                \"isEventSpecific\": false\n            }\n        },\n        {\n            \"id\": 1658,\n            \"venueId\": 314,\n            \"competitionId\": 1,\n            \"venue\": {\n                \"id\": 314,\n                \"name\": \"65dasdas\",\n                \"shortName\": null,\n                \"street1\": \"asd\",\n                \"street2\": \"\",\n                \"suburb\": \"ssssss\",\n                \"stateRefId\": 2,\n                \"postalCode\": \"8547\",\n                \"contactNumber\": \"\",\n                \"statusRefId\": 1,\n                \"createdBy\": 3,\n                \"createdByOrganisation\": 3,\n                \"updatedBy\": null,\n                \"updatedOn\": null,\n                \"isDeleted\": 0,\n                \"lat\": null,\n                \"lng\": null,\n                \"isEventSpecific\": false\n            }\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Competition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The Competition Created Successfully\", function () {\r",
+							"  pm.expect(pm.response.text()).to.include(\"Id\")\r",
+							"  });\r",
+							"  let competitionId = pm.response.json();\r",
+							"pm.environment.set(\"competitionId\", competitionId.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"94\", \"Google Chrome\";v=\"94\", \";Not A Brand\";v=\"99\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "Access-Control-Allow-Origin",
+						"value": "*"
+					},
+					{
+						"key": "SourceSystem",
+						"value": "WebAdmin"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "Origin",
+						"value": "https://netball-comp-admin-dev.worldsportaction.com"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-site"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Referer",
+						"value": "https://netball-comp-admin-dev.worldsportaction.com/"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9,ar;q=0.8"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "longName",
+							"value": "Oct Api Test ",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "Oct Test",
+							"type": "text"
+						},
+						{
+							"key": "logo",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "recordUmpireType",
+							"value": "USERS",
+							"type": "text"
+						},
+						{
+							"key": "enhancedStatistics",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "gameTimeTracking",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "positionTracking",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "recordGoalAttempts",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "centrePassEnabled",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "incidentsEnabled",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "attendanceRecordingType",
+							"value": "BOTH",
+							"type": "text"
+						},
+						{
+							"key": "attendanceRecordingPeriod",
+							"value": "PERIOD",
+							"type": "text"
+						},
+						{
+							"key": "scoringType",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "timerType",
+							"value": "PER_MATCH_PER_PERIOD",
+							"type": "text"
+						},
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}",
+							"type": "text"
+						},
+						{
+							"key": "buzzerEnabled",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "warningBuzzerEnabled",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "playerBorrowingType",
+							"value": "GAMES",
+							"type": "text"
+						},
+						{
+							"key": "gamesBorrowedThreshold",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "linkedCompetitionId",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "yearRefId",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "isInvitorsChanged",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "timeoutDetails",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "whoScoring",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "acceptScoring",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "extraTime",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "additionalTime",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeFor",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeType",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeDuration",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeMainBreak",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeQuarterBreak",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "foulsSettings",
+							"value": "{}",
+							"type": "text"
+						},
+						{
+							"key": "gameTimeTrackingType",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "invitedTo",
+							"value": "[5]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions?venues=[{{venueId}}]",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions"
+					],
+					"query": [
+						{
+							"key": "venues",
+							"value": "[{{venueId}}]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete competition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Competition Deleted\", function () {\r",
+							"    pm.expect(jsonData.raw.affectedRows).to.eql(1);\r",
+							"});\r",
+							"\r",
+							"pm.environment.unset(\"competitionId\");\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{livescores_api}}/competitions/id/:id",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"id",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "{{competitionId}}",
+							"type": "string"
+						}
+					]
+				},
+				"description": "Delete a competition"
+			},
+			"response": []
+		},
+		{
+			"name": "find competition by name, location",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/competitions?name=missy&locationId={{locationId}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "missy",
+							"description": "Partial competition name"
+						},
+						{
+							"key": "locationId",
+							"value": "{{locationId}}",
+							"description": "Location reference code based on /ref/states"
+						}
+					]
+				},
+				"description": "Get competition details by name and location"
+			},
+			"response": [
+				{
+					"name": "GET competition by name, location",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{livescores_api}}/competitions?name=wsa",
+							"host": [
+								"{{livescores_api}}"
+							],
+							"path": [
+								"competitions"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "wsa",
+									"description": "Partial competition name"
+								},
+								{
+									"key": "locationId",
+									"value": "2",
+									"description": "Location reference code based on /ref/states",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.14.0 (Ubuntu)"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Apr 2020 23:36:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2549"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"9f5-Czh0NE8qVOEWJVen8iB1jSuaqhQ\""
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 105,\n        \"uniqueKey\": \"34e01809-7e54-419a-8d93-31e5c88bca9e\",\n        \"name\": \"WSA\",\n        \"longName\": \"WSA Test\",\n        \"logoUrl\": \"https://www.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/comp_105%2Flogo_1585710144214.png?generation=1585710144914335&alt=media\",\n        \"organisationId\": 84,\n        \"recordUmpire\": 1,\n        \"gameTimeTracking\": true,\n        \"positionTracking\": true,\n        \"uploadScores\": false,\n        \"uploadAttendance\": false,\n        \"scoringType\": \"SINGLE\",\n        \"attendanceRecordingType\": \"BOTH\",\n        \"timerType\": \"CENTRAL_WITH_MATCH_OVERRIDE\",\n        \"attendanceRecordingPeriod\": \"MINUTE\",\n        \"softBuzzerUrl\": null,\n        \"hardBuzzerUrl\": null,\n        \"recordGoalAttempts\": true,\n        \"centrePassEnabled\": true,\n        \"lineupSelectionTime\": null,\n        \"attendanceSelectionTime\": null,\n        \"lineupSelectionEnabled\": false,\n        \"lineupMaxPlayers\": null,\n        \"incidentsEnabled\": true,\n        \"buzzerEnabled\": false,\n        \"warningBuzzerEnabled\": false,\n        \"deleted_at\": null,\n        \"location\": null\n    },\n    {\n        \"id\": 107,\n        \"uniqueKey\": \"b7a169b1-8ef8-4d2c-87ff-da9211183048\",\n        \"name\": \"Over ride\",\n        \"longName\": \"WSA Test 2 - Match Override\",\n        \"logoUrl\": \"https://www.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/comp_107%2Flogo_1585625378258.jpeg?generation=1585625379156270&alt=media\",\n        \"organisationId\": 84,\n        \"recordUmpire\": 1,\n        \"gameTimeTracking\": true,\n        \"positionTracking\": true,\n        \"uploadScores\": false,\n        \"uploadAttendance\": false,\n        \"scoringType\": \"SINGLE\",\n        \"attendanceRecordingType\": \"BOTH\",\n        \"timerType\": \"PER_MATCH\",\n        \"attendanceRecordingPeriod\": \"MINUTE\",\n        \"softBuzzerUrl\": null,\n        \"hardBuzzerUrl\": null,\n        \"recordGoalAttempts\": true,\n        \"centrePassEnabled\": true,\n        \"lineupSelectionTime\": null,\n        \"attendanceSelectionTime\": null,\n        \"lineupSelectionEnabled\": false,\n        \"lineupMaxPlayers\": null,\n        \"incidentsEnabled\": true,\n        \"buzzerEnabled\": false,\n        \"warningBuzzerEnabled\": false,\n        \"deleted_at\": null,\n        \"location\": null\n    },\n    {\n        \"id\": 110,\n        \"uniqueKey\": \"f3800d27-7be6-4811-86b5-5886bcbc6b73\",\n        \"name\": \"WSA Test 3\",\n        \"longName\": \"WSA Test 3\",\n        \"logoUrl\": \"https://www.googleapis.com/download/storage/v1/b/world-sport-action.appspot.com/o/comp_110%2Flogo_1585707284655.png?generation=1585707285718713&alt=media\",\n        \"organisationId\": 2,\n        \"recordUmpire\": 1,\n        \"gameTimeTracking\": true,\n        \"positionTracking\": true,\n        \"uploadScores\": false,\n        \"uploadAttendance\": false,\n        \"scoringType\": \"SINGLE\",\n        \"attendanceRecordingType\": \"BOTH\",\n        \"timerType\": \"CENTRAL_WITH_MATCH_OVERRIDE\",\n        \"attendanceRecordingPeriod\": \"MINUTE\",\n        \"softBuzzerUrl\": null,\n        \"hardBuzzerUrl\": null,\n        \"recordGoalAttempts\": true,\n        \"centrePassEnabled\": true,\n        \"lineupSelectionTime\": null,\n        \"attendanceSelectionTime\": null,\n        \"lineupSelectionEnabled\": false,\n        \"lineupMaxPlayers\": null,\n        \"incidentsEnabled\": true,\n        \"buzzerEnabled\": false,\n        \"warningBuzzerEnabled\": false,\n        \"deleted_at\": null,\n        \"location\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GET admin list",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Response include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paging\" : {\r\n        \"limit\" : 10,\r\n        \"offset\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions/admin?organisationId={{organisationId_state}}&recordUmpireType=USERS&umpiredCompsOnly=false&isParticipatingInCompetition=false&sortOrder={{sortOrder}}&sortBy={{sortBy}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}"
+						},
+						{
+							"key": "recordUmpireType",
+							"value": "USERS"
+						},
+						{
+							"key": "umpiredCompsOnly",
+							"value": "false"
+						},
+						{
+							"key": "isParticipatingInCompetition",
+							"value": "false"
+						},
+						{
+							"key": "sortOrder",
+							"value": "{{sortOrder}}"
+						},
+						{
+							"key": "sortBy",
+							"value": "{{sortBy}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get hierarchy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/competitions/hierarchy?competitionId={{competitionId_State Direct}}&teamName=a b&organisationName=Asma State",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"hierarchy"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_State Direct}}"
+						},
+						{
+							"key": "teamName",
+							"value": "a b"
+						},
+						{
+							"key": "organisationName",
+							"value": "Asma State"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "watchlist",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/competitions/watchlist?competitionIds=[{{competitionId_StateDirect}}]&teamIds=[{{teamId}}]&playerIds=[{{playerId_with Attendance}}]&competitionOrganisationIds=[{{competitionOrganisationId_with incident}}]",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"watchlist"
+					],
+					"query": [
+						{
+							"key": "competitionIds",
+							"value": "[{{competitionId_StateDirect}}]"
+						},
+						{
+							"key": "teamIds",
+							"value": "[{{teamId}}]"
+						},
+						{
+							"key": "playerIds",
+							"value": "[{{playerId_with Attendance}}]"
+						},
+						{
+							"key": "competitionOrganisationIds",
+							"value": "[{{competitionOrganisationId_with incident}}]"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET entities",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/competitions/entities?competitionIds=[{{competitionId_StateDirect}}]&teamIds=[{{teamId}}]&playerIds=[{{playerId}}]&competitionOrganisationIds={{competitionOrganisationIds}}&fetchTeamCompetition=false",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"entities"
+					],
+					"query": [
+						{
+							"key": "competitionIds",
+							"value": "[{{competitionId_StateDirect}}]"
+						},
+						{
+							"key": "teamIds",
+							"value": "[{{teamId}}]"
+						},
+						{
+							"key": "playerIds",
+							"value": "[{{playerId}}]"
+						},
+						{
+							"key": "competitionOrganisationIds",
+							"value": "{{competitionOrganisationIds}}"
+						},
+						{
+							"key": "fetchTeamCompetition",
+							"value": "false"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ladderSettings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/competitions/ladderSettings?competitionId={{competitionUniqueKey_State}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"ladderSettings"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionUniqueKey_State}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ladder Settings",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Ladder Settings Successfully Updated\", function () {\r",
+							"    pm.expect(jsonData.message).to.eql(\"Successfully Updated\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 1,\n        \"points\": 4\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 2,\n        \"points\": 2\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 3,\n        \"points\": 1\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 4,\n        \"points\": 5\n    },\n    {\n        \"id\": 1355,\n        \"competitionId\": 108,\n        \"resultTypeId\": 5,\n        \"points\": 0\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 6,\n        \"points\": 2\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 7,\n        \"points\": 3\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 8,\n        \"points\": 2\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 9,\n        \"points\": 2\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions/ladderSettings?competitionId={{competitionUniqueKey_State}}&canUpdatePastPoints=0",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"ladderSettings"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionUniqueKey_State}}"
+						},
+						{
+							"key": "canUpdatePastPoints",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update Ladder Calculation Method",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 1,\n        \"points\": 4\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 2,\n        \"points\": 2\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 3,\n        \"points\": 1\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 4,\n        \"points\": 5\n    },\n    {\n        \"id\": 1355,\n        \"competitionId\": 108,\n        \"resultTypeId\": 5,\n        \"points\": 0\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 6,\n        \"points\": 2\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 7,\n        \"points\": 3\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 8,\n        \"points\": 2\n    },\n    {\n        \"competitionId\": 108,\n        \"resultTypeId\": 9,\n        \"points\": 2\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions/ladderCalculationMethod?competitionId={{competitionUniqueKey_State}}&canUpdatePastPoints=0",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"ladderCalculationMethod"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionUniqueKey_State}}"
+						},
+						{
+							"key": "canUpdatePastPoints",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET venue court",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{livescores_api}}/competitions/venueCourt?competitionId={{competitionId_State Direct}}&name=3May",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"venueCourt"
+					],
+					"query": [
+						{
+							"key": "competitionId",
+							"value": "{{competitionId_State Direct}}"
+						},
+						{
+							"key": "name",
+							"value": "3May"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET competitions (search)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paging\" : {\r\n        \"limit\" : 10,\r\n        \"offset\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions/list?organisationId={{organisationId_state}}&yearRefId={{yearRefId_2020}}&organisationUniqueKey={{organisationUniqueKey_State}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"list"
+					],
+					"query": [
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}"
+						},
+						{
+							"key": "yearRefId",
+							"value": "{{yearRefId_2020}}"
+						},
+						{
+							"key": "organisationUniqueKey",
+							"value": "{{organisationUniqueKey_State}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET adminDashboard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Body include id\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paging\" : {\r\n        \"limit\" : 10,\r\n        \"offset\": 0\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions/admin?organisationId={{organisationId_state}}&yearRefId={{yearRefId_2020}}&sortBy={{sortBy}}&sortOrder={{sortOrder}}",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions",
+						"admin"
+					],
+					"query": [
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}"
+						},
+						{
+							"key": "yearRefId",
+							"value": "{{yearRefId_2020}}"
+						},
+						{
+							"key": "sortBy",
+							"value": "{{sortBy}}"
+						},
+						{
+							"key": "sortOrder",
+							"value": "{{sortOrder}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save or Edit competition",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"The Competition Settings saved successfully\", function () {\r",
+							"    pm.expect(jsonData.id).to.eql(850);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "{{competitionId_StateDirect}}",
+							"description": "If not passed in, a new competition will be created; else the id of the competition to update.",
+							"type": "text"
+						},
+						{
+							"key": "longName",
+							"value": "2021 team player per match",
+							"contentType": "",
+							"description": "The full name of the competition",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "2021 team player per match",
+							"description": "The competition's short name - appears where an abbreviated form of the competition is displayed",
+							"type": "text"
+						},
+						{
+							"key": "logo",
+							"value": "https://www.googleapis.com/download/storage/v1/b/world-sport-action-dev-c1019.appspot.com/o/organisation%2Flogo_org_133_1609199899401.jpeg?generation=1609199900297602&alt=media",
+							"type": "text"
+						},
+						{
+							"key": "recordUmpireType",
+							"value": "USERS",
+							"description": "The type of umpires. None = NONE, Integrated = USERS, At Courts = NAMES",
+							"type": "text"
+						},
+						{
+							"key": "gameTimeTracking",
+							"value": "true",
+							"description": "Whether game time tracking is enabled.",
+							"type": "text"
+						},
+						{
+							"key": "positionTracking",
+							"value": "true",
+							"description": "Whether position tracking is enabled.",
+							"type": "text"
+						},
+						{
+							"key": "recordGoalAttempts",
+							"value": "true",
+							"description": "Whether goal attempts are recorded.",
+							"type": "text"
+						},
+						{
+							"key": "centrePassEnabled",
+							"value": "true",
+							"description": "Whether centre pass tracking is enabled.",
+							"type": "text"
+						},
+						{
+							"key": "incidentsEnabled",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "attendanceRecordingType",
+							"value": "BOTH",
+							"description": "Which team records attendance. Options: OWN | OPPOSITION | BOTH",
+							"type": "text"
+						},
+						{
+							"key": "attendanceRecordingPeriod",
+							"value": "PERIOD",
+							"description": "Atttendance reporting defaults. Options: PERIOD | MINUTE | MATCH",
+							"type": "text"
+						},
+						{
+							"key": "scoringType",
+							"value": "SINGLE",
+							"description": "Type of scoring. Options: SINGLE | 50_50",
+							"type": "text"
+						},
+						{
+							"key": "timerType",
+							"value": "PER_MATCH_PER_PERIOD",
+							"description": "Type of timer. Options: CENTRAL | PER_MATCH | CENTRAL_WITH_MATCH_OVERRIDE",
+							"type": "text"
+						},
+						{
+							"key": "organisationId",
+							"value": "{{organisationId_state}}",
+							"description": "The id of the competition organiser's organisation",
+							"type": "text"
+						},
+						{
+							"key": "buzzerEnabled",
+							"value": "true",
+							"description": "Whether the buzzer plays at the start and end of every period",
+							"type": "text"
+						},
+						{
+							"key": "warningBuzzerEnabled",
+							"value": "true",
+							"description": "Whether a warning announcement plays 30 seconds before the start of every period",
+							"type": "text"
+						},
+						{
+							"key": "playerBorrowingType",
+							"value": "MINUTES",
+							"type": "text"
+						},
+						{
+							"key": "gamesBorrowedThreshold",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "linkedCompetitionId",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "yearRefId",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "isInvitorsChanged",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "timeoutDetails",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "whoScoring",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "acceptScoring",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "extraTime",
+							"value": "true",
+							"type": "text"
+						},
+						{
+							"key": "additionalTime",
+							"value": "false",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeFor",
+							"value": "null",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeType",
+							"value": "single",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeDuration",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeMainBreak",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "extraTimeQuarterBreak",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "foulsSettings",
+							"value": "{\"sinBin\":[{\"type\":\"PF\",\"value\":\"1\"},{\"type\":\"T\",\"value\":\"2\"},{\"type\":\"U\",\"value\":\"3\"},{\"type\":\"D\",\"value\":\"4\"}],\"teamFouls\":{\"type\":\"FOUR_QUARTERS\",\"perInterval\":[1,2,3,9]},\"sendoffReport\":[{\"type\":\"PF\",\"value\":\"5\"},{\"type\":\"T\",\"value\":\"6\"},{\"type\":\"U\",\"value\":\"7\"},{\"type\":\"D\",\"value\":\"8\"}],\"removedFromGame\":[{\"type\":\"PF\",\"value\":\"9\"},{\"type\":\"T\",\"value\":\"10\"},{\"type\":\"U\",\"value\":\"11\"},{\"type\":\"D\",\"value\":\"12\"}],\"sinBinLengthOfTime\":5,\"includeInPersonalFouls\":[{\"type\":\"PF\",\"value\":\"13\"},{\"type\":\"T\",\"value\":\"14\"},{\"type\":\"U\",\"value\":\"15\"},{\"type\":\"D\",\"value\":\"16\"}]}",
+							"type": "text"
+						},
+						{
+							"key": "attendanceSelectionTime",
+							"value": "4505",
+							"description": "Number of minutes \nbefore a game starts can attendance be recorded. App defaults to 60 if not set.",
+							"type": "text"
+						},
+						{
+							"key": "gameTimeTrackingType",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "invitedTo",
+							"value": "[5]",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{livescores_api}}/competitions?venues=[{{venueId}},555]",
+					"host": [
+						"{{livescores_api}}"
+					],
+					"path": [
+						"competitions"
+					],
+					"query": [
+						{
+							"key": "venues",
+							"value": "[{{venueId}},555]",
+							"description": "Ids for the venues that this competition will run at"
+						}
+					]
+				},
+				"description": "On save, a uuid is generated for competitionUniqueKey"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": {
+			"in": "header",
+			"value": "{{auth}}",
+			"key": "Authorization"
+		}
+	}
+}
