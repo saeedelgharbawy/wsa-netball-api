@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "90480685-8958-44b6-9cae-90eefd661af1",
 		"name": "LS Division",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
@@ -41,16 +41,7 @@
 			"request": {
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "{{livescores_api}}/division/",
-					"host": [
-						"{{livescores_api}}"
-					],
-					"path": [
-						"division",
-						""
-					]
-				}
+				"url": "{{livescores_api}}/division/"
 			},
 			"response": []
 		},
@@ -148,11 +139,6 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"const jsonData = pm.response.json();\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
 							""
 						],
 						"type": "text/javascript"
@@ -265,11 +251,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"const jsonData = pm.response.json();\r",
-							"\r",
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -310,18 +292,10 @@
 	],
 	"auth": {
 		"type": "apikey",
-		"apikey": [
-			{
-				"key": "key",
-				"value": "Authorization",
-				"type": "string"
-			},
-			{
-				"key": "value",
-				"value": "{{auth}}",
-				"type": "string"
-			}
-		]
+		"apikey": {
+			"key": "Authorization",
+			"value": "{{auth}}"
+		}
 	},
 	"event": [
 		{
